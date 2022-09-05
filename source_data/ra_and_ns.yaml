@@ -12,6 +12,9 @@ registration_authorities:
   -
     name: "d4k CT namespace"
     value: "https://ct.d4k.dk/"
+  -
+    name: "d4k CRM namespace"
+    value: "https://crm.d4k.dk/"
 -
   name: "CDISC"
   company: null
