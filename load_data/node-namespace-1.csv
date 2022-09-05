@@ -1,4 +1,5 @@
 "id:ID","name","value","uri","uuid"
-"3","d4k CT namespace","https://ct.d4k.dk/","http://ra.d4k.dk/dataset/ns/d4k-ct-namespace","e5575e45-abf6-4bd3-a9cc-43d6d1f6e296"
-"4","d4k CRM namespace","https://crm.d4k.dk/","http://ra.d4k.dk/dataset/ns/d4k-crm-namespace","4430b7e2-d5a2-4eb3-945b-69643ba5e184"
-"5","CDISC CT namespace","https://ct.d4k.dk/cdisc","http://ra.d4k.dk/dataset/ns/cdisc-ct-namespace","8c1440be-13a5-49b9-b27c-e348371b9714"
+"3","d4k CT namespace","https://ct.d4k.dk/","http://ra.d4k.dk/dataset/ns/d4k-ct-namespace","e66a8c5d-152f-4753-ba78-e87dde99b287"
+"4","d4k CRM namespace","https://crm.d4k.dk/","http://ra.d4k.dk/dataset/ns/d4k-crm-namespace","71d7a830-b2ac-4d48-8b65-9dd7a9eb272f"
+"5","d4k BC namespace","https://bc.d4k.dk/","http://ra.d4k.dk/dataset/ns/d4k-bc-namespace","2e0bf961-cece-4966-8e1c-7edab0f1586f"
+"6","CDISC CT namespace","https://ct.d4k.dk/cdisc","http://ra.d4k.dk/dataset/ns/cdisc-ct-namespace","66001c64-52d4-4799-8dfc-1f393c393a67"
