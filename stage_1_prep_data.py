@@ -2,7 +2,9 @@ import yaml
 import os
 import csv
 import copy
+import json
 from uuid import uuid4
+from stringcase import pascalcase, snakecase
 
 id_number = 1
 uuid_to_id = {}
@@ -14,6 +16,8 @@ def process_nodes(node_set, ra_uri, ns_uri):
   for ra in node_set:
     ra_record = ra
     ra_record = copy.deepcopy(ra)
+    for field in ['dun', 'ror', 'grid', 'company']:
+      ra_record[field] = json.dumps(ra_record[field])
     ra_record.pop('namespaces')
     ra_record['uri'] = "%s%s" % (ra_uri, ra_record['name'].replace(' ', '-').lower()) 
     ra_record['uuid'] = str(uuid4())
@@ -69,7 +73,7 @@ def write_relationships(the_data, csv_filename, id_field="id:ID"):
 delete_dir("load_data")
 
 for k, v in nodes.items():
-  csv_filename = "load_data/node-%s-1.csv" % (k.lower())
+  csv_filename = "load_data/node-%s-1.csv" % (snakecase(k))
   write_nodes(v, csv_filename)
 
 for k, v in relationships.items():

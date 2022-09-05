@@ -1,4 +1,4 @@
 "id:ID","name","value","uri","uuid"
-"3","d4k CT namespace","https://ct.d4k.dk/","http://ra.d4k.dk/dataset/ns/d4k-ct-namespace","3e72ea12-b782-4ccb-8a3a-2e04ade1c0c9"
-"4","d4k CRM namespace","https://crm.d4k.dk/","http://ra.d4k.dk/dataset/ns/d4k-crm-namespace","96f91663-37bc-47e3-aa6e-e79d16e8125d"
-"5","CDISC CT namespace","https://ct.d4k.dk/cdisc","http://ra.d4k.dk/dataset/ns/cdisc-ct-namespace","0b3700f1-3086-4118-9b30-478ea7e7db66"
+"3","d4k CT namespace","https://ct.d4k.dk/","http://ra.d4k.dk/dataset/ns/d4k-ct-namespace","e5575e45-abf6-4bd3-a9cc-43d6d1f6e296"
+"4","d4k CRM namespace","https://crm.d4k.dk/","http://ra.d4k.dk/dataset/ns/d4k-crm-namespace","4430b7e2-d5a2-4eb3-945b-69643ba5e184"
+"5","CDISC CT namespace","https://ct.d4k.dk/cdisc","http://ra.d4k.dk/dataset/ns/cdisc-ct-namespace","8c1440be-13a5-49b9-b27c-e348371b9714"
