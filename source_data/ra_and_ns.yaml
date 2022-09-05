@@ -1,0 +1,25 @@
+﻿---
+registration_authorities:
+-
+  name: "d4k"
+  company: 
+    identifier: "42805610"
+    country_code: DNK
+  dun: null
+  grid: null
+  ror: null
+  namespaces:
+  -
+    name: "d4k CT namespace"
+    value: "https://ct.d4k.dk/"
+-
+  name: "CDISC"
+  company: null
+  dun: 
+    identifier: "084433759"
+  grid: null
+  ror: null
+  namespaces:
+  -
+    name: "CDISC CT namespace"
+    value: "https://ct.d4k.dk/cdisc"
