@@ -21,6 +21,9 @@ registration_authorities:
   -
     name: "d4k Study namespace"
     value: "https://study.d4k.dk/"
+  -
+    name: "d4k SDTM namespace"
+    value: "https://sdtm.d4k.dk/"
 -
   name: "CDISC"
   company: null
