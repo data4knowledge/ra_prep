@@ -11,18 +11,27 @@ registration_authorities:
   namespaces:
   -
     name: "d4k CT namespace"
+    service: "CT"
     value: "https://ct.d4k.dk/"
   -
     name: "d4k CRM namespace"
+    service: "CRM"
     value: "https://crm.d4k.dk/"
   -
     name: "d4k BC namespace"
+    service: "BC"
     value: "https://bc.d4k.dk/"
   -
     name: "d4k Study namespace"
+    service: "STUDY"
     value: "https://study.d4k.dk/"
   -
     name: "d4k SDTM namespace"
+    service: "SDTM"
+    value: "https://sdtm.d4k.dk/"
+  -
+    name: "d4k form namespace"
+    service: "FORM"
     value: "https://sdtm.d4k.dk/"
 -
   name: "CDISC"
@@ -34,4 +43,5 @@ registration_authorities:
   namespaces:
   -
     name: "CDISC CT namespace"
+    service: "CT"
     value: "https://ct.d4k.dk/cdisc"
