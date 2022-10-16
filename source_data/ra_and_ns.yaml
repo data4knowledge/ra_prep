@@ -44,4 +44,4 @@ registration_authorities:
   -
     name: "CDISC CT namespace"
     service: "CT"
-    value: "https://ct.d4k.dk/cdisc"
+    value: "https://ct.d4k.dk/cdisc/"
