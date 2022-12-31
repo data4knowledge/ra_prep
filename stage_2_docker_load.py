@@ -1,29 +1,23 @@
 from neo4j import GraphDatabase
-import os
-import glob
-from stringcase import pascalcase, snakecase
 from utility.service_environment import ServiceEnvironment
 
+load_nodes = [
+  { 'filename': 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSBQKSIdj7TsBqFUF6CnJdZCpnOKiwWfZCRIR83sIfNDylfh6JH-Bzx_WYqvq1IGYJE8BMauLwUrMAB/pub?output=csv', 'label': 'Namespace' }, 
+  { 'filename': 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRtItBGKeYsgF-ifRZA2OJI7JA8dN0JI5LRqbGQteL-9nz55O5knt75GNeHB1V7QnH8Ud9YqVzMuE1H/pub?output=csv', 'label': 'RegistrationAuthority' }
+]
+
+load_relationships = [
+  { 'filename': 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRNsbtFpoFuHnKYixC6-UFHJ-IuPYkc6RHZ-teoN3LLWLWnMvH6YyVsZT7QWFxF3SU0DXchoRcOXjE3/pub?output=csv', 'type': 'MANAGES' }
+]
+
 def file_load(driver, database):
-  project_root = os.path.abspath(os.path.dirname(__file__))
-  load_files = []
-  for filename in glob.glob("load_data/*.csv"):
-    parts = filename.replace("load_data/", "").split("-")
-    file_path = os.path.join(project_root, filename)
-    print(file_path)
-    if parts[0] == "node":
-      load_files.append({ "label": pascalcase(parts[1]), "filename": file_path })
-    else:
-      load_files.append({ "type": parts[1].upper(), "filename": file_path })
-  result = None
   session = driver.session(database=database)
   nodes = []
   relationships = []
-  for file_item in load_files:
-    if "label" in file_item:
-      nodes.append("{ fileName: '%s', labels: ['%s'] }" % (file_item["filename"], file_item["label"]) )
-    else:
-      relationships.append("{ fileName: '%s', type: '%s' }" % (file_item["filename"], file_item["type"]) )
+  for file_item in load_nodes:
+    nodes.append("{ fileName: '%s', labels: ['%s'] }" % (file_item["filename"], file_item["label"]) )
+  for file_item in load_relationships:
+    relationships.append("{ fileName: '%s', type: '%s' }" % (file_item["filename"], file_item["type"]) )
   query = """CALL apoc.import.csv( [%s], [%s], {stringIds: false})""" % (", ".join(nodes), ", ".join(relationships))
   print(query)
   result = session.run(query)
