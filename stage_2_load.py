@@ -2,10 +2,14 @@ from neo4j import GraphDatabase
 import os
 import glob
 from stringcase import pascalcase, snakecase
-from service_environment import ServiceEnvironment
+from utility.service_environment import ServiceEnvironment
 
-def file_load(driver, database):
-  project_root = os.path.abspath(os.path.dirname(__file__))
+def file_load(driver, database, sv):
+  print("ENV", sv.production())
+  if sv.production():
+    project_root = sv.get("GITHUB")
+  else:
+    project_root = os.path.abspath(os.path.dirname(__file__))
   load_files = []
   for filename in glob.glob("load_data/*.csv"):
     parts = filename.replace("load_data/", "").split("-")
@@ -40,15 +44,17 @@ def clear_neo4j(driver, database):
     session.write_transaction(clear)
   driver.close()
 
-db_name = ServiceEnvironment().get('NEO4J_DB_NAME')
-url = ServiceEnvironment().get('NEO4J_URL')
-usr = ServiceEnvironment().get('NEO4J_USER')
-pwd = ServiceEnvironment().get('NEO4J_PWD')
+sv = ServiceEnvironment()
+db_name = sv.get('NEO4J_DB_NAME')
+url = sv.get('NEO4J_URI')
+usr = sv.get('NEO4J_USERNAME')
+pwd = sv.get('NEO4J_PASSWORD')
+print(url, usr, pwd)
 driver = GraphDatabase.driver(url, auth=(usr, pwd))
 
 print("Deleting database ...")
 clear_neo4j(driver, db_name)
 print("Database deleted. Load new data ...")
-result = file_load(driver, db_name)
+result = file_load(driver, db_name, sv)
 print("Load complete. %s nodes and %s relationships loaded in %s milliseconds." % (result['nodes'], result['relationships'], result['time']))
 
