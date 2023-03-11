@@ -13,14 +13,12 @@ class ServiceEnvironment():
       return "development"
 
   def production(self):
-    print("E", self.environment())
     return self.environment() == "production"
 
   def get(self, name):
     if name in os.environ:
       return os.environ[name]
     else:
-      print("ENV GET: Missing")
       return ""
 
   def load(self):
