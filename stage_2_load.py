@@ -37,7 +37,7 @@ def file_load(driver, database, sv):
   return return_value
 
 def clear(tx):
-  tx.run("CALL apoc.periodic.iterate('MATCH (n) WHERE NOT n:`_Neodash_Dashboard` RETURN n', 'DETACH DELETE n', {batchSize:1000})")
+  tx.run("CALL apoc.periodic.iterate('MATCH (n) RETURN n', 'DETACH DELETE n', {batchSize:1000})")
 
 def clear_neo4j(driver, database):
   with driver.session(database=database) as session:
