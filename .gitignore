@@ -129,6 +129,7 @@ dmypy.json
 .pyre/
 .development_test_env
 .DS_Store
+**/.DS_Store
 .production_env
 .development_env
 .test_env
