@@ -5,7 +5,6 @@ from stringcase import pascalcase, snakecase
 from utility.service_environment import ServiceEnvironment
 
 def file_load(driver, database, sv):
-  print("ENV", sv.production())
   if sv.production():
     project_root = sv.get("GITHUB")
   else:
@@ -49,7 +48,6 @@ db_name = sv.get('NEO4J_DB_NAME')
 url = sv.get('NEO4J_URI')
 usr = sv.get('NEO4J_USERNAME')
 pwd = sv.get('NEO4J_PASSWORD')
-print(url, usr, pwd)
 driver = GraphDatabase.driver(url, auth=(usr, pwd))
 
 print("Deleting database ...")
